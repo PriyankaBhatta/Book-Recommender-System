@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Book Recommender System</title>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
+    </head>
+
+<style>
+    .text-white{
+        color:white
+    }
+</style>
+    <body style="background-color:black">
+        <nav class="navbar" style="background-color:pink">
+            <a class="navbar-brand" style="color: black" >My Book Recommender</a>
+            <ul style="float:right" class="nav navbar-nav">
+                <li><a style="color: black" href="/">Home</a></li>
+                <li><a  style="color: black" href="/recommend">Recommend</a></li>
+                
+            </ul>
+        </nav>
+
+
+        <!--to display top 50 books-->
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1 class="text-white" style="font-size:50px">Top 50 Books</h1>
+                </div>
+
+                {% for i in range(book_name | length)%}
+                <div class="col-md-3" style="margin-top:50px">
+                    <div class="card">
+                        <div class="card-body">
+                            <img class="crd-img-top"  src="{{ image[i] }}">
+                            <h4 class="text-white">{{ book_name[i] }}</h4>
+                            <h5 class="text-white">{{ author[i] }}</h5>
+                            <h5 class="text-white">Votes - {{ votes[i] }}</h5>
+                            <h5 class="text-white">Rating - {{ rating[i] }}</h5>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+              
+            </div>
+        </div>
+    </body>
+</html>
